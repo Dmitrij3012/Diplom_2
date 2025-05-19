@@ -1,4 +1,6 @@
 import allure
+
+import data
 from methods.user_methods import UserMethods
 
 
@@ -39,11 +41,7 @@ class TestChangingUserData:
             token = ''
 
         with allure.step('Изменение данных'):
-            body = {
-                'email': 'qwerty777@test123123.com',
-                'password': 'QWERTY7771234',
-                'name': '1234'
-            }
+            body = data.MODIFIED_DATA
             response = UserMethods.changing_user_data(body, token)
 
         with allure.step('Проверка ответа'):
